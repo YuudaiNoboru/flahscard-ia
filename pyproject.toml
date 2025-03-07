@@ -1,0 +1,88 @@
+[project]
+name = "flahscard-ia"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "genanki>=0.13.1",
+    "groq>=0.18.0",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "ruff>=0.9.10",
+]
+
+
+[tool.ruff]
+# Ativar todas as regras relacionadas ao PEP 8
+select = [
+    "E",   # Erros de estilo (pycodestyle)
+    "W",   # Avisos de estilo (pycodestyle)
+    "F",   # Erros de pyflakes
+    "I",   # Ordem de imports (isort)
+    "C90", # Complexidade de McCabe
+    "N",   # Convenções de nomenclatura (pep8-naming)
+    "D",   # Docstrings (pydocstyle)
+    "UP",  # Upgrade de sintaxe para Python 3
+    "B",   # Erros de boas práticas (flake8-bugbear)
+    "A",   # Builtins shadowing (flake8-builtins)
+    "COM", # Vírgulas (flake8-commas)
+    "C4",  # Complexidade (flake8-comprehensions)
+    "ISC", # String implícita (flake8-implicit-str-concat)
+    "G",   # Log formatado (flake8-logging-format)
+    "T20", # Print statements (flake8-print)
+    "PT",  # Pytest (flake8-pytest-style)
+    "Q",   # Aspas (flake8-quotes)
+    "RET", # Return (flake8-return)
+    "SIM", # Simplificação (flake8-simplify)
+    "ARG", # Funções não utilizadas (flake8-unused-arguments)
+    "PTH", # Uso correto de caminhos (flake8-use-pathlib)
+    "ERA", # Apagamento comentado (eradicate)
+    "PD",  # Pandas (pandas-vet)
+    "PL",  # Pylint
+    "TRY", # Exceções (tryceratops)
+    "RUF", # Regras específicas do Ruff
+]
+
+# Ignorar algumas regras específicas se necessário
+# ignore = []
+
+# Configurações gerais
+line-length = 79
+target-version = "py39"  # Ajuste para sua versão do Python
+
+# Excluir diretórios específicos
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "env",
+    "migrations",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.mccabe]
+# Complexidade máxima para funções
+max-complexity = 10
+
+[tool.ruff.pydocstyle]
+convention = "google"  # Pode ser "google", "numpy" ou "pep257"
+
+[tool.ruff.isort]
+# Configurações do isort
+known-first-party = ["meu_projeto"]  # Substitua pelo nome do seu projeto
+known-third-party = ["requests", "numpy"]  # Adicione bibliotecas de terceiros conhecidas
+lines-after-imports = 2  # Duas linhas em branco após os imports
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "single"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
